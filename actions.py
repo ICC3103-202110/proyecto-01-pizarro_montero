@@ -3,9 +3,9 @@
 class Action:
     
     def __init__(self):
-        action_name = ''
-        action = ''
-        coinsNeeded = 0
+        self.action_name = ''
+        self.action = ''
+        self.coinsNeeded = 0
 
     def play(self):
         pass
