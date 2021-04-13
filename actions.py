@@ -3,7 +3,7 @@
 class Action:
     
     def __init__(self):
-        name = ''
+        action_name = ''
         action = ''
         coinsNeeded = 0
 
