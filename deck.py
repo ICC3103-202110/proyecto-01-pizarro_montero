@@ -3,16 +3,15 @@ from numpy import random
 
 
 class Deck:
-
+    #elimina las que no estan
     def __init__(self):
-        self.influencia = ['Duke','Assasin','Captain','Ambassador','Contessa']
-        self.cards = []
-        for i in range(len(self.influencia)):
-            self.cards.append(Cards(self.influencia[i]))
-            self.cards.append(Cards(self.influencia[i]))
-            self.cards.append(Cards(self.influencia[i]))
-        
-    
-    def shuffle(self):
-        random.shuffle(self.cards)
-    
+        self.deck = []
+        self.influenceCard = ['Duke','Assasin','Captain','Ambassador',
+        'Contessa']
+        for i in self.influenceCard:
+            for k in range(3):
+                self.deck.append(Cards(i))
+        random.shuffle(self.deck)
+
+    def deal_cards(self):
+        pass 
