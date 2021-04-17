@@ -1,48 +1,50 @@
+from players import Players
 
-#CLASE PADRE
-class Action:
+class action:
     
     def __init__(self):
         self.action_name = ''
         self.action = ''
         self.coinsNeeded = 0
+        self.coinsGained = 0
 
     def play(self):
-        pass
+        Players.modifyCoins(coinsNeeded) 
+        Players.modifyCoins(coinsGained) 
 
-#SUBCLASES
-class Income(Action):
+class income(action):
+    self.coinsGained = 1
+
+class ForeignAid(action):
+
+
+
+class Coup(action):
     pass
 
-class ForeignAid(Action):
-    pass
-
-class Coup(Action):
-    pass
-
-class Duke(Action):
+class Duke(action):
     def tax(self):
         #obtiene 3 monedas
         pass
     pass
 
-class Assasin(Action):
-    def assessinate(self):
+class Assasin(action):
+    def assessinate(self, target):
         #paga 3 mmonedas y asesina una influencia
-        pass
-    pass
+        #Players.loseInfluence(player)
+    
 
-class Captain(Action):
+class Captain(action):
     def steel(self):
         #quita max 2 monedas
         pass
     pass
 
-class Ambassador(Action):
+class Ambassador(action):
     def exchange(self):
         #cambia cartas
         pass
     pass
 
-class Contessa(Action):
+class Contessa(action):
     pass
