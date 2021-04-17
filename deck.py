@@ -3,15 +3,27 @@ from numpy import random
 
 
 class Deck:
-    #elimina las que no estan
     def __init__(self):
-        self.deck = []
-        self.influenceCard = ['Duke','Assasin','Captain','Ambassador',
+        self.__cards = self.generate_deck()
+
+
+    @property
+    def cards(self):
+        return self.__cards
+    
+
+    def generate_deck(self):
+        influenceCard = ['Duke','Assasin','Captain','Ambassador',
         'Contessa']
-        for i in self.influenceCard:
+        cards = []
+        for i in influenceCard:
             for k in range(3):
-                self.deck.append(Cards(i))
-        random.shuffle(self.deck)
+                cards.append(Cards(i))
+        random.shuffle(cards)
+        return cards
 
     def deal_cards(self):
+        pass
+
+    def remove_card_of_deck(self):
         pass 
