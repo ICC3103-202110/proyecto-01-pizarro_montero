@@ -30,8 +30,9 @@ class Duke(action):
 
 class Assasin(action):
     def assessinate(self, target):
+        self.coinsNeeded = -3
         #paga 3 mmonedas y asesina una influencia
-        #Players.loseInfluence(player)
+        #Players.loseInfluence(target)
     
 
 class Captain(action):
