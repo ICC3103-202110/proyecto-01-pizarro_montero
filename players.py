@@ -6,11 +6,24 @@ class Players:
     def __init__(self, name):
         self.name = name
         self.coins=0
-        self.cards = Deck.deal_cards()
+        self.__cards = Deck().deal_cards()
+
+    @property
+    def cards(self):
+        return self.__cards
+    
+    def loseInfluence(self):
+        #el jugador pierde una carta y esta debe quedar visible para todos los
+        #jugadores, no vuelve al mazo
+        #la carta es elegida
+        chosenCard = input('Seleccione influencia: ')
+        self.cards.remove(chosenCard)
+        return chosenCard #entregar esta carta a lostInfluence en game.
+
 
     def pickAction(self):
         self.action = input('Que desea hacer?: ')
-        if self.action = '':
+        if self.action == '':
             pass
         pass
 
@@ -18,9 +31,15 @@ class Players:
         
         pass
 
-    def modify_coins(self, amount):
+    def modifyCoins(self, amount):
         self.coins += amount
+    
+    
+def main():
+    k = Players('Juan')
+    for i in k.cards:
+        print(i.getVal())
+    
 
-    
-    
-    
+if __name__ == "__main__":
+    main() 
