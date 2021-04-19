@@ -1,6 +1,5 @@
 from deck import Deck
 
-
 class Players:
 
     def __init__(self, name):
@@ -12,6 +11,7 @@ class Players:
     def cards(self):
         return self.__cards
     
+#Trabajar esta funcion pq no funciona...
     def loseInfluence(self):
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
@@ -22,13 +22,17 @@ class Players:
 
 
     def pickAction(self):
-        self.action = input('Que desea hacer?: ')
-        if self.action == '':
+        self.action = int(input('Que desea hacer?: '))
+        if self.action == 1:
             pass
-        pass
+
+
 
     def blockAction(self):
         
+        pass
+
+    def Challenge(self):
         pass
 
     def modifyCoins(self, amount):
@@ -40,6 +44,6 @@ def main():
     for i in k.cards:
         print(i.getVal())
     
-
+    
 if __name__ == "__main__":
     main() 

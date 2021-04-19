@@ -6,10 +6,12 @@ class Game:
         self.players = []
         self.lostInfluences = []
 
+    def changeTurn(self):
+        pass
     #turno va de 0-3
     #condicion para cantidad de jugadores
     def play(self):
-        self.currentPlayer = 0
+        self.turn = 0
         num_of_players = int(input('Cuantos jugadores?: '))
         while num_of_players < 3 or num_of_players > 4:
             print('Cantidad invalida')
@@ -17,4 +19,14 @@ class Game:
         for i in range(num_of_players):
             name = input('Nombre jugador: ')
             self.players.append(Players(name))
-        pass
+    
+        while not self.GameOver():
+            self.currentPlayer = self.players[self.turn]
+            self.currentPlayer.pickAction()
+
+    def GameOver(self):
+        return True
+
+
+        
+

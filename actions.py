@@ -13,10 +13,11 @@ class action:
         Players.modifyCoins(coinsGained) 
 
 class income(action):
+    self.coinsNeeded = 0
     self.coinsGained = 1
 
 class ForeignAid(action):
-
+    pass
 
 
 class Coup(action):
