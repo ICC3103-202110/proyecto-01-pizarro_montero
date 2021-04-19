@@ -32,5 +32,4 @@ class Deck:
 
 
     def remove_card_of_deck(self, card):
-
-        pass 
+        self.cards.remove(card)

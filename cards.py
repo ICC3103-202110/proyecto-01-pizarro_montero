@@ -1,10 +1,12 @@
 class Cards:
     def __init__(self, val):
         self.val = val
-        self._face = False
+        self.isFaceUp = False
+        self.inGame = True
 
     def getVal(self):
         return  self.val
 
-    def isFaceUp(self):
-        pass
+    def flipCard(self):
+        return True
+        

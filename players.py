@@ -5,7 +5,7 @@ class Players:
 
     def __init__(self, name):
         self.name = name
-        self.coins=0
+        self.coins = 0
         self.__cards = Deck().deal_cards()
 
     @property
