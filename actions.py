@@ -8,7 +8,7 @@ class action:
         self.coinsNeeded = 0
         self.coinsGained = 0
 
-    def play(self):
+    def play_action(self):
         Players.modifyCoins(coinsNeeded) 
         Players.modifyCoins(coinsGained) 
 
