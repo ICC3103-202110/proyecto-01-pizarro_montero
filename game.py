@@ -6,8 +6,6 @@ class Game:
         self.players = []
         self.lostInfluences = []
 
-    def changeTurn(self):
-        pass
     #turno va de 0-3
     #condicion para cantidad de jugadores
     def play(self):

@@ -17,7 +17,7 @@ class Players:
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
         #la carta es elegida
-        chosenCard = input('Seleccione una carta (0 o 1)')
+        chosenCard = int(input('Seleccione una carta (0 o 1): '))
         card = self.cards(i).getVal()
         print(card)
         #self.cards.pop(i)
@@ -25,15 +25,25 @@ class Players:
 
 
     def pickAction(self):
-        Printer().menu(self.name)
-        # self.action = int(input('Que desea hacer?: '))
-        # if self.action == 1:
-        #     pass
-
+        action = Printer().menu(self.name)
+        if action == 1:
+            print('income')
+        elif action == 2:
+            print('foreign help')
+        elif action == 3:
+            print('coup')
+        elif action == 4:
+            print('tax')
+        elif action == 5:
+            print('assesinate')
+        elif action == 6:
+            print('exchange')
+        elif action == 7:
+            print('steal')
 
 
     def blockAction(self):
-        
+        block = Printer().blockAction()
         pass
 
     def Challenge(self):
