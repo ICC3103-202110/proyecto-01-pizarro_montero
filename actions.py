@@ -12,41 +12,46 @@ class action:
         Players.modifyCoins(coinsNeeded) 
         Players.modifyCoins(coinsGained) 
 
-class income(action):
+class income(self):
     self.coinsNeeded = 0
     self.coinsGained = 1
 
-class ForeignAid(action):
-    pass
+class ForeignAid(self):
+    self.coinsNeeded = 0
+    self.coinsNeeded = 2
 
 
-class Coup(action):
-    pass
+class Coup(self):
+    self.coinsneed = 7
+    """
+    Players.loseInfluence()
+    """
 
-class Duke(action):
+class Duke(self):
     def tax(self):
         #obtiene 3 monedas
+        
         pass
     pass
 
-class Assasin(action):
+class Assasin(self):
     def assessinate(self, target):
         self.coinsNeeded = -3
         #paga 3 mmonedas y asesina una influencia
         #Players.loseInfluence(target)
     
 
-class Captain(action):
+class Captain(self):
     def steel(self):
         #quita max 2 monedas
         pass
     pass
 
-class Ambassador(action):
+class Ambassador(self):
     def exchange(self):
         #cambia cartas
         pass
     pass
 
-class Contessa(action):
+class Contessa(self):
     pass
