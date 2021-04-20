@@ -9,7 +9,6 @@ class Cards:
         return  self.__val
     
 
-
     @property
     def isFaceUp(self):
         return self.__isFaceUp
@@ -27,5 +26,6 @@ class Cards:
 
     @inGame.setter
     def inGame(self):
+        pass
         
         
