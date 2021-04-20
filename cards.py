@@ -7,8 +7,7 @@ class Cards:
     @property
     def val(self):
         return  self.__val
-    
-
+   
     @property
     def isFaceUp(self):
         return self.__isFaceUp

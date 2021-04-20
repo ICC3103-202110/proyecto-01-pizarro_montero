@@ -29,3 +29,6 @@ class Deck:
             deal.append(card)
             self.cards.pop(i)
         return deal
+
+    def return_card(self):
+        pass
