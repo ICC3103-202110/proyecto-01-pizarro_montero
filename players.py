@@ -1,3 +1,4 @@
+from printer import Printer
 from deck import Deck
 
 class Players:
@@ -19,14 +20,15 @@ class Players:
         chosenCard = input('Seleccione una carta (0 o 1)')
         card = self.cards(i).getVal()
         print(card)
-        self.cards.pop(i)
+        #self.cards.pop(i)
          #entregar esta carta a lostInfluence en game.
 
 
     def pickAction(self):
-        self.action = int(input('Que desea hacer?: '))
-        if self.action == 1:
-            pass
+        Printer().menu(self.name)
+        # self.action = int(input('Que desea hacer?: '))
+        # if self.action == 1:
+        #     pass
 
 
 
@@ -46,6 +48,7 @@ def main():
     for i in k.cards:
         print(i.getVal())
     print(k.loseInfluence)
+    k.pickAction()
     
     
 if __name__ == "__main__":
