@@ -1,6 +1,3 @@
-
-
-
 class Printer:
 
     def menu(self, numero):
@@ -15,15 +12,45 @@ class Printer:
             , sep="\n")
         return input()
         
-    def challenge(self, Jugador):
+    def challenge(self):
         print("Does someone want to Challenge?")
         print("Yes, then identify your self (Your number):")
         print("No, then enter 0")
-        return input()
+        answer = input()
+        if answer != 0 and answer < = 4:
+            ans = []
+            print("Number of the player you are challenging:")
+            target = input()
+            ans.append(answer)
+            ans.append(target)
+        #entrega una lista con el jugador que desafio y el que esta desafiando
+        return ans
 
-    def counterattack(self, Jugador):
+    def counterattack(self):
         print("Does someone want to counterattack?")
         print("Yes, then identify your self (Your number):")
         print("No, then enter 0")
-        return input()
+        answer = input()
+        if answer != 0 and answer < = 4:
+            ans = []
+            print("Number of the player you are counterattacking:")
+            target = input()
+            ans.append(answer)
+            ans.append(target)
+        #entrega una lista con el jugador que contra ataco y el que esta desafiando
+        return ans
+
+    def blockAction(self):
+        print("Does someone want to block the action?")
+        print("Yes, then identify your self (Your number):")
+        print("No, then enter 0")
+        answer = input()
+        if answer != 0 and answer < = 4:
+            ans = []
+            print("Number of the player you are blocking:")
+            target = input()
+            ans.append(answer)
+            ans.append(target)
+        return ans
+
         
