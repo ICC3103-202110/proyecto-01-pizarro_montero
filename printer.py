@@ -4,16 +4,16 @@ class Printer:
         print("Player", numero,  ",what would you like to do?")
         print("1. Income","2. Foreign Aid", "3. Coup","4. Tax","5. Addassinate"
             ,"6. Exchange","7. Steal", sep="\n")
-        return input()
+        return int(input())
         
     def challenge(self):
         print("Does someone want to Challenge?")
-        print("Yes, then identify your self (Your number):")
+        print("Yes, then identify your self (Your players name):")
         print("No, then enter 0")
         answer = input()
-        if answer != 0 and answer < = 4:
+        if answer != 0 :
             ans = []
-            print("Number of the player you are challenging:")
+            print("Name of the player you are challenging:")
             target = input()
             ans.append(answer)
             ans.append(target)
@@ -22,12 +22,12 @@ class Printer:
 
     def counterattack(self):
         print("Does someone want to counterattack?")
-        print("Yes, then identify your self (Your number):")
+        print("Yes, then identify your self (Your players name):")
         print("No, then enter 0")
         answer = input()
-        if answer != 0 and answer < = 4:
+        if answer != 0:
             ans = []
-            print("Number of the player you are counterattacking:")
+            print("Name of the player you are counterattacking:")
             target = input()
             ans.append(answer)
             ans.append(target)
@@ -36,12 +36,12 @@ class Printer:
 
     def blockAction(self):
         print("Does someone want to block the action?")
-        print("Yes, then identify your self (Your number):")
+        print("Yes, then identify your self (Your players name):")
         print("No, then enter 0")
         answer = input()
-        if answer != 0 and answer < = 4:
+        if answer != 0:
             ans = []
-            print("Number of the player you are blocking:")
+            print("Name of the player you are blocking:")
             target = input()
             ans.append(answer)
             ans.append(target)
