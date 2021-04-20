@@ -16,9 +16,11 @@ class Players:
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
         #la carta es elegida
-        chosenCard = input('Seleccione influencia: ')
-        self.cards.remove(chosenCard)
-        return chosenCard #entregar esta carta a lostInfluence en game.
+        chosenCard = input('Seleccione una carta (0 o 1)')
+        card = self.cards(i).getVal()
+        print(card)
+        self.cards.pop(i)
+         #entregar esta carta a lostInfluence en game.
 
 
     def pickAction(self):
@@ -43,6 +45,7 @@ def main():
     k = Players('Juan')
     for i in k.cards:
         print(i.getVal())
+    print(k.loseInfluence)
     
     
 if __name__ == "__main__":
