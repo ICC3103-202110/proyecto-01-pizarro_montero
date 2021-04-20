@@ -18,7 +18,7 @@ class income(self):
 
 class ForeignAid(self):
     self.coinsNeeded = 0
-    self.coinsNeeded = 2
+    self.coinsGained = 2
 
 
 class Coup(self):
@@ -30,9 +30,9 @@ class Coup(self):
 class Duke(self):
     def tax(self):
         #obtiene 3 monedas
+        self.coinsGained = 3
         
-        pass
-    pass
+    
 
 class Assasin(self):
     def assessinate(self, target):
