@@ -23,9 +23,8 @@ class ForeignAid(Action):
 class Coup(Action):
     def __init__(self):
         self.coinsGained = -7
-    """
-    Players.loseInfluence()
-    """
+
+    
 
 # class Duke(self):
 #     def tax(self):

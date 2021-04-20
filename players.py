@@ -6,9 +6,21 @@ from actions import Action, Income
 class Players:
 
     def __init__(self, name):
-        self.name = name
-        self.coins = 2
+        self.__name = name
+        self.__coins = 2
         self.__cards = Deck().deal_cards()
+
+    @property
+    def name(self):
+        return self.__name
+    
+    @property
+    def coins(self):
+        return self.__coins
+
+    @coins.setter
+    def coins(self, newCoins):
+        self.__coins = newCoins
 
     @property
     def cards(self):
@@ -20,11 +32,21 @@ class Players:
         #jugadores, no vuelve al mazo
         #la carta es elegida
         chosenCard = int(input('Seleccione una carta (0 o 1): '))
-        card = self.cards(chosenCard).getVal()
+        card = self.cards[chosenCard].getVal()
+        self.cards.pop(chosenCard)
         print('hola')
-        print(card)
-        #self.cards.pop(i)
-         #entregar esta carta a lostInfluence en game.
+        return card
+        #entregar esta carta a lostInfluence en game.
+    
+    def loseInfluence(self, cardSelected):
+        #el jugador pierde una carta y esta debe quedar visible para todos los
+        #jugadores, no vuelve al mazo
+        #la carta es elegida
+        card = self.cards[cardSelected].getVal()
+        self.cards.pop(chosenCard)
+        print('hola')
+        return card
+        #entregar esta carta a lostInfluence en game.
 
 
     def pickAction(self):
@@ -32,12 +54,17 @@ class Players:
         if action == 1:
             print('income')
             #print(income().play_action())
-            x = income().play_action()
+            x = Income().play_action()
             self.modifyCoins(x)
         elif action == 2:
-            print('foreign help')
+            print('foreign aid')
+            x = ForeignAid().play_action()
+            self.modifyCoins(x)
         elif action == 3:
             print('coup')
+            x = Coup().play_action()
+            self.modifyCoins(x)
+            self.loseInfluence(target)
         elif action == 4:
             print('tax')
         elif action == 5:
@@ -63,9 +90,9 @@ def main():
     k = Players('Juan')
     for i in k.cards:
         print(i.getVal())
-    #k.loseInfluence()
-    k.pickAction()
-    print(k.coins)
+    k.loseInfluence()
+    #k.pickAction()
+    #print(k.coins)
     
     
 if __name__ == "__main__":

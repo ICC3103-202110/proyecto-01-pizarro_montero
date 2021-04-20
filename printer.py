@@ -31,7 +31,8 @@ class Printer:
             target = input("Name of the player you are counterattacking: ")
             ans.append(name)
             ans.append(target)
-        #entrega una lista con el jugador que contra ataco y el que esta desafiando
+        #entrega una lista con el jugador que contra ataco y el que esta 
+        #desafiando
         return ans
 
     def blockAction(self):

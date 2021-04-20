@@ -11,6 +11,7 @@ class Deck:
     def cards(self):
          return self.__cards
     
+
     def generate_deck(self):
         influenceCard = ['Duke','Assasin','Captain','Ambassador',
         'Contessa']
@@ -19,9 +20,8 @@ class Deck:
             for k in range(3):
                 cards.append(Cards(i))
         random.shuffle(cards)
-        return cards
+        self.cards = cards
     
-
     def deal_cards(self):
         deal = []
         for i in range(2):
@@ -29,7 +29,3 @@ class Deck:
             deal.append(card)
             self.cards.pop(i)
         return deal
-
-
-    def remove_card_of_deck(self, card):
-        self.cards.remove(card)

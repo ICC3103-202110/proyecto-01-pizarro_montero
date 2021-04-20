@@ -6,6 +6,9 @@ class Game:
         self.players = []
         self.lostInfluences = []
 
+    #self.lostInfluences.append(self.players[algo].loseInfluence())
+
+
     #turno va de 0-3
     #condicion para cantidad de jugadores
     def play(self):
