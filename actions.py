@@ -16,7 +16,7 @@ class Action:
 
     def Coup(Action):
         self.coinsGained = -7
-        target = input("A quien te gustaria quitarle una influencia?:")
+        target = input("Which player do you want to take away a card?:")
         coins = self.coinsGained
         coup = []
         coup.append(target)
