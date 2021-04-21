@@ -35,15 +35,4 @@ class Printer:
         #desafiando
         return ans
 
-    def blockAction(self):
-        print("Does someone want to block the action?")
-        print("1. Yes")
-        print("2. No")
-        answer = int(input())
-        if answer != 2:
-            name = input('Your name: ')
-            ans = []
-            target = input("Name of the player you are blocking: ")
-            ans.append(name)
-            ans.append(target)
-        return ans
+

@@ -6,32 +6,35 @@ class Action:
         # self.action_name = ''
         # self.action = ''
         self.coinsGained = 0
-        self.coinsNeeded = 0
-
-    def play_action(self):
-        return self.coinsGained
 
     def Income(self):
         return self.coinsGained = 1
-        print('listo')
 
     def ForeignAid(self):
         return self.coinsGained = 2
 
 
     def Coup(Action):
-        return self.coinsGained = -7
+        self.coinsGained = -7
+        target = input("A quien te gustaria quitarle una influencia?")
+        coins = self.coinsGained
+        coup = []
+        coup.append(target)
+        coup.append(coins)
+        return coup 
+        #lista que tiene la persona que pierda influencia y monedas perdida
 
     
     def Duke(self):
-        return self.coinsGained = 3
+        self.coinsGained = 3
+        coins = c
         #obtiene 3 monedas
 #         self.coinsGained = 3
         
     
 
     def Assasin(self):
-        return self.coinsNeeded = -3
+        self.coinsNeeded = -3
         
          #paga 3 mmonedas y asesina una influencia
          #Players.loseInfluence(target)
