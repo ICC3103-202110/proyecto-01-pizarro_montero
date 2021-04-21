@@ -26,24 +26,22 @@ class Game:
             self.currentPlayer = self.players[self.turn]
             action = self.currentPlayer.pickAction()
             
-            if action <= 7 and action > = 1:
-                if action = 1:
-                    #income 
-                    c = Action.Income()
-                    Players.modifyCoins(c)
 
-                if action = 2:
+            if action == 1 or action == 2 or action == 3:
+                if action == 1:
+                    print('income')
+                    x = AC
+                    self.currentPlayer.modifyCoins(x)
+                elif action == 2:
+                    print('foreign aid')
+                    x = ForeignAid().play_action()
+                    self.currentPlayer.modifyCoins(x)
+                elif action == 3:
+                    print('coup')
+                    x = Coup().play_action()
+                    self.currentPlayer.modifyCoins(x)
+                    self.loseInfluence()
 
-                if action = 3:
-
-                if action = 4:
-
-                if action = 5:
-
-                if action = 6:
-
-                if action = 7:
-                #desarrollar accion
             else:
                 for player in self.players:
                     if player != self.currentPlayer:
@@ -62,7 +60,4 @@ class Game:
 
     def GameOver(self):
         return True
-
-
-        
 
