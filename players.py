@@ -24,6 +24,10 @@ class Players:
     @property
     def cards(self):
         return self.__cards
+
+    @cards.setter
+    def cards(self):
+        pass
     
 #Trabajar esta funcion pq no funciona...
     def loseInfluence(self):

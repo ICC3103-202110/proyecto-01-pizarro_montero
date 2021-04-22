@@ -8,7 +8,6 @@ class Game:
 
     #self.lostInfluences.append(self.players[algo].loseInfluence())
 
-
     #turno va de 0-3
     #condicion para cantidad de jugadores
     def play(self):
@@ -25,7 +24,7 @@ class Game:
         while not self.GameOver():
             self.currentPlayer = self.players[self.turn]
             action = self.currentPlayer.pickAction()
-            
+            #Acciones Generales
             if action == 1 or action == 2 or action == 3:
                 if action == 1:
                     print('income')
@@ -40,7 +39,7 @@ class Game:
                     self.currentPlayer.modifyCoins(amount)
                     (self.lostInfluences.append(self.target.
                     loseInfluence(selectedCard))
-
+            #Acciones de Personaje
             else:
                 for player in self.players:
                     if player != self.currentPlayer:
@@ -55,11 +54,12 @@ class Game:
                             actual devuelve su carta al mazo y saca otra y el 
                             jugador de desafia pierde la influencia.
                             '''
+                            #condiciones accion/carta
                         elif challenge == 2:#no
                             #preguntar si desea contraatacar
                             if counterattack == 1: #si
-                                "preguntar si alguien desafia el contraataque"
-                                if challenge == 1:
+                                #preguntar si alguien desafia el contraataque
+                                if challenge == 1:#si
                                     #desafia al contraataque
                                     '''
                                 si gana el que desafia el jugador que 
@@ -70,13 +70,19 @@ class Game:
                                 al mazo y saca otra y el jugador de desafia 
                                 pierde una influencia.
                                 '''
-                                elif challenge = 2:
+                                #condiciones contraataque/carta
+                                elif challenge = 2:#no
                                     #contraataca
-                            elif counterattack == 2:
+                            elif counterattack == 2:#no
                                 #ejecuta accion
             
-            #cambio de turno
+            if len(self.players) == 1:
+                GameOver()
+            else:
+                #cambio de turno
 
 
     def GameOver(self):
         return True
+
+#Crear condiciones para cuando los jugadores se quedan sin cartas

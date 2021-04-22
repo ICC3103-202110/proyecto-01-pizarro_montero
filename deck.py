@@ -30,5 +30,11 @@ class Deck:
             self.cards.pop(i)
         return deal
 
-    def return_card(self):
-        pass
+    def return_card(self, card):
+        self.cards.append(card)
+
+    def deal_one_card(self):
+        for i in range(len(self.cards)):
+            card = self.cards[i]
+            self.cards.pop(i)
+        return card
