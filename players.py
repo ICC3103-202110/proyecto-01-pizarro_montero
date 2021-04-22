@@ -3,10 +3,10 @@ from deck import Deck
 
 class Players:
 
-    def __init__(self, name):
+    def __init__(self, name, deck):
         self.__name = name
         self.__coins = 2
-        self.__cards = Deck().deal_cards()
+        self.__cards = deck.deal_cards()
 
     @property
     def name(self):
@@ -32,22 +32,17 @@ class Players:
     def loseInfluence(self):
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
-        #la carta es elegida
-        chosenCard = int(input('Seleccione una carta (0 o 1): '))
+        chosenCard = int(input('Seleccione una de sus cartas: '))
         card = self.cards[chosenCard].getVal()
         self.cards.pop(chosenCard)
         return card
-        #entregar esta carta a lostInfluence en game.
     
     def loseInfluence(self, cardSelected):
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
-        #la carta es elegida
         card = self.cards[cardSelected].getVal()
         self.cards.pop(chosenCard)
-        print('hola')
         return card
-        #entregar esta carta a lostInfluence en game.
 
 
     def pickAction(self):
@@ -56,8 +51,8 @@ class Players:
 
 
     def counterAttack(self):
-        block = Printer().counterattack()
-        return block
+        counterattack = Printer().counterattack()
+        return counterattack
 
     def Challenge(self):
         challenge = Printer().challenge()
@@ -66,7 +61,10 @@ class Players:
     def modifyCoins(self, amount):
         self.coins += amount
     
-    
+    def changeCard(self):
+        pass
+
+
 def main():
     k = Players('Juan')
     for i in k.cards:

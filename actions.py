@@ -37,19 +37,15 @@ class Action:
         deadCard = self.player2.loseInfluence(selectedCard)
         return deadCard 
         #paga 3 mmonedas y asesina una influencia
-    
+
+    def Exchange(self, player, deck):
+        newCards = deck.deal_cards()
+        oldCards = player.cards()
+        #seleccionar una carta para quedarse devolver dos
+        #cambia sus cartas
+
     def Steal(self, player1, player2):
         #condiciones monedas player2
         player1.modifyCoins(2)
-        player2.modifyCoins(-2)
- 
-
-
-    def Exchange(self, player1, deck):
-        newCards = deck.deal_cards()
-        oldCards = player1.cards()
-        #seleccionar una carta para quedarse devolver dos
-        
-        #cambia sus cartas
-        
+        player2.modifyCoins(-2)      
 
