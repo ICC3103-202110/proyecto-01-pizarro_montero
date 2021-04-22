@@ -5,7 +5,7 @@ class Game:
     def __init__(self):
         self.players = []
         self.lostInfluences = []
-
+        self.action = Action()
     #self.lostInfluences.append(self.players[algo].loseInfluence())
 
     #turno va de 0-3
@@ -19,7 +19,7 @@ class Game:
         for i in range(num_of_players):
             name = input('Nombre jugador: ')
             self.players.append(Players(name))
-    
+        #crear condicion para que no se repitan nombres
 
         while not self.GameOver():
             self.currentPlayer = self.players[self.turn]
@@ -27,18 +27,14 @@ class Game:
             #Acciones Generales
             if action == 1 or action == 2 or action == 3:
                 if action == 1:
-                    print('income')
-                    amount = Action().Income()
-                    self.currentPlayer.modifyCoins(amount)
+                    self.action.Income(self.currentPlayer)
                 elif action == 2:
-                    print('foreign aid')
-                    amount = Action().ForeignAid()
-                    self.currentPlayer.modifyCoins(amount)
+                    self.action.ForeignAid(self.currentPlayer)
                 elif action == 3:
-                    print('coup')
-                    self.currentPlayer.modifyCoins(amount)
-                    (self.lostInfluences.append(self.target.
-                    loseInfluence(selectedCard))
+                    target = input('quien: ')
+                    target = self.players.index(target)
+                    self.lostInfluences.append(self.action.Coup(
+                        self.currentPlayer, target))
             #Acciones de Personaje
             else:
                 for player in self.players:
@@ -75,6 +71,19 @@ class Game:
                                     #contraataca
                             elif counterattack == 2:#no
                                 #ejecuta accion
+                                if action == 4:
+                                    target = input('f: ')
+                                    target = self.players.index(target)
+                                    self.action.Tax(self.currentPlayer, target)
+                                elif action == 5:
+                                    target = input('as: ')
+                                    target = self.players.index(target)
+                                    self.action.Assassinate(self.currentPlayer,
+                                     target)
+                                elif action == 6:
+                                    pass
+                                elif action == 7:
+                                    pass
             
             if len(self.players) == 1:
                 GameOver()

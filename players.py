@@ -1,7 +1,6 @@
 from printer import Printer
 from deck import Deck
 
-
 class Players:
 
     def __init__(self, name):
@@ -37,7 +36,6 @@ class Players:
         chosenCard = int(input('Seleccione una carta (0 o 1): '))
         card = self.cards[chosenCard].getVal()
         self.cards.pop(chosenCard)
-        print('hola')
         return card
         #entregar esta carta a lostInfluence en game.
     

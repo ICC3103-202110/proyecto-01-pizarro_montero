@@ -8,23 +8,21 @@ class Cards:
     def val(self):
         return  self.__val
    
-    @property
-    def isFaceUp(self):
-        return self.__isFaceUp
+    # @property
+    # def isFaceUp(self):
+    #     return self.__isFaceUp
 
-    @isFaceUp.setter
-    def isFaceUp(self):
-        if self.__isFaceUp:
-            self.__isFaceUp = False
-        else:
-            self.__isFaceUp = True
+    # @isFaceUp.setter
+    # def isFaceUp(self):
+    #     if self.__isFaceUp:
+    #         self.__isFaceUp = False
+    #     else:
+    #         self.__isFaceUp = True
 
-    @property
-    def inGame(self):
-        return self.__inGame
+    # @property
+    # def inGame(self):
+    #     return self.__inGame
 
-    @inGame.setter
-    def inGame(self):
-        pass
-        
-        
+    # @inGame.setter
+    # def inGame(self):
+    #     pass        

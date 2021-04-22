@@ -1,68 +1,55 @@
-#from players import Players
+from players import Players
+from deck import Deck
 
 class Action:
     
     def __init__(self):
-        # self.action_name = ''
-        # self.action = ''
         self.coinsGained = 0
 
-    def Income(self):
-        return self.coinsGained = 1
+#Acciones Generales
+    def Income(self, player):
+        player.modifyCoins(1)   
 
-    def ForeignAid(self):
-        return self.coinsGained = 2
+    def ForeignAid(self, player):
+        player.modifyCoins(2)
 
+    def Coup(self, player1, player2):
+        player1.modifyCoins(-7)
+        selectedCard = int(input('Which card do you want to delete?: '))
+        #ver lo de la cantidad de cartas
+        #leer enunciado
+        deadCard = self.player2.loseInfluence(selectedCard)
+        return deadCard 
 
-    def Coup(Action):
-        self.coinsGained = -7
-        target = input("Which player do you want to take away a card?:")
-        coins = self.coinsGained
-        coup = []
-        coup.append(target)
-        coup.append(coins)
-        return coup 
-        #lista que tiene la persona que pierda influencia y monedas perdida
-
-    
-    def Duke(self):
-        self.coinsGained = 3
-        coins = self.coinsGained
-        person = input("Who do you want to take coins from?:")
-        duke = []
-        duke.append(person)
-        duke.append(coins)
-        return duke
-        #lista que tiene a la persona que se le quita las monedas y la cantidad de monedas
+#Acciones de Personaje
+#Ver desafio
+    def Tax(self, player1, player2):
+        player1.modifyCoins(3)
+        #depende de las monedas que tiene player2
+        player2.modifyCoins(-3)
         
+        
+    def Assassinate(self, player1, player2):
+        player1.modifyCoins(-3)
+        selectedCard = int(input('Which card do you want to delete?: '))
+        #ver lo de la cantidad de cartas
+        #leer enunciado
+        deadCard = self.player2.loseInfluence(selectedCard)
+        return deadCard 
+        #paga 3 mmonedas y asesina una influencia
     
-
-    def Assasin(self):
-        self.coinsGained = -3
-        coins = self.coinsGained
-        person = input("Who do you want to kill?:")
-        assasin = []
-        assasin.append(person)
-        assasin.append(coins)
-        return assasin
-         #paga 3 mmonedas y asesina una influencia
-         #Players.loseInfluence(target)
-    
-    def Captain(self):
-        self.coinsGained = 2
-        coins = self.coinsGained
-        person = input("From whom would you like to steal?:")
-        captain = []
-        captain.append(person)
-        captain.append(coins)
-        return captain 
+    def Steal(self, player1, player2):
+        #condiciones monedas player2
+        player1.modifyCoins(2)
+        player2.modifyCoins(-2)
+ 
 
 
-    def Ambassador(self):
-        card = input("Which card would you like to change?:")
-        person = input("Which player do you want to change with?:")
-        ambassador = []
-        ambassador.append(card)
-        ambassador.append(person)
-        return ambassador
+    def Exchange(self, player1, deck):
+        newCards = deck.deal_cards()
+        oldCards = player1.cards()
+        #seleccionar una carta para quedarse devolver dos
+        
+        #cambia sus cartas
+        
 
