@@ -26,38 +26,57 @@ class Game:
             self.currentPlayer = self.players[self.turn]
             action = self.currentPlayer.pickAction()
             
-
             if action == 1 or action == 2 or action == 3:
                 if action == 1:
                     print('income')
-                    x = AC
-                    self.currentPlayer.modifyCoins(x)
+                    amount = Action().Income()
+                    self.currentPlayer.modifyCoins(amount)
                 elif action == 2:
                     print('foreign aid')
-                    x = ForeignAid().play_action()
-                    self.currentPlayer.modifyCoins(x)
+                    amount = Action().ForeignAid()
+                    self.currentPlayer.modifyCoins(amount)
                 elif action == 3:
                     print('coup')
-                    x = Coup().play_action()
-                    self.currentPlayer.modifyCoins(x)
-                    self.loseInfluence()
+                    self.currentPlayer.modifyCoins(amount)
+                    (self.lostInfluences.append(self.target.
+                    loseInfluence(selectedCard))
 
             else:
                 for player in self.players:
                     if player != self.currentPlayer:
                         #preguntar si quiere desafiar
+                        player.Challenge()
                         if challenge == 1:#si
                             #desafia
+                            '''
+                            si gana el que desafia el jugador actual pierde una
+                            carta y no se ejecuta la accion.
+                            si gana el desafio se ejecuta la accion, el jugador
+                            actual devuelve su carta al mazo y saca otra y el 
+                            jugador de desafia pierde la influencia.
+                            '''
                         elif challenge == 2:#no
                             #preguntar si desea contraatacar
                             if counterattack == 1: #si
-                                "alguien pregunta si desafia el contraataque"
+                                "preguntar si alguien desafia el contraataque"
                                 if challenge == 1:
                                     #desafia al contraataque
+                                    '''
+                                si gana el que desafia el jugador que 
+                                contraataca pierde una carta, el jugador actual
+                                ejecuta la accion
+                                si gana el desafio se ejecuta el contraataque, 
+                                el jugador que contraataca devuelve su carta
+                                al mazo y saca otra y el jugador de desafia 
+                                pierde una influencia.
+                                '''
                                 elif challenge = 2:
-                                    #desafia
+                                    #contraataca
+                            elif counterattack == 2:
+                                #ejecuta accion
+            
+            #cambio de turno
 
 
     def GameOver(self):
         return True
-

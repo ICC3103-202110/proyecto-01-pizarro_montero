@@ -1,6 +1,5 @@
 from printer import Printer
 from deck import Deck
-from actions import Action, Income
 
 
 class Players:
@@ -51,36 +50,16 @@ class Players:
 
     def pickAction(self):
         action = Printer().menu(self.name)
-        if action == 1:
-            print('income')
-            #print(income().play_action())
-            x = Income().play_action()
-            self.modifyCoins(x)
-        elif action == 2:
-            print('foreign aid')
-            x = ForeignAid().play_action()
-            self.modifyCoins(x)
-        elif action == 3:
-            print('coup')
-            x = Coup().play_action()
-            self.modifyCoins(x)
-            self.loseInfluence(target)
-        elif action == 4:
-            print('tax')
-        elif action == 5:
-            print('assesinate')
-        elif action == 6:
-            print('exchange')
-        elif action == 7:
-            print('steal')
+        return action
 
 
-    def blockAction(self):
-        block = Printer().blockAction()
-        pass
+    def counterAttack(self):
+        block = Printer().counterattack()
+        return block
 
     def Challenge(self):
-        pass
+        challenge = Printer().challenge()
+        return challenge
 
     def modifyCoins(self, amount):
         self.coins += amount
