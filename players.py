@@ -59,6 +59,31 @@ class Players:
         pass
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def main():
     d = Deck()
     k = Players('Juan', d)

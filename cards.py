@@ -5,4 +5,3 @@ class Cards:
     @property
     def val(self):
         return  self.__val
-        

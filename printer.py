@@ -21,5 +21,3 @@ class Printer:
         print("2. No")
         answer = int(input())
         return answer
-
-
