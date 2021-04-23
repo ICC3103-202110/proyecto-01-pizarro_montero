@@ -43,7 +43,7 @@ class Action:
 
     def Steal(self, player1, player2):
         #condiciones monedas player2
-        if player2.coins() >= 2 :
+        if player2.coins >= 2 :
             player1.modifyCoins(2)
             player2.modifyCoins(-2)
         elif player2.coins == 1:
