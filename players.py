@@ -23,12 +23,7 @@ class Players:
     @property
     def cards(self):
         return self.__cards
-
-    @cards.setter
-    def cards(self):
-        pass
     
-#Trabajar esta funcion pq no funciona...
     def loseInfluence(self):
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
@@ -37,19 +32,18 @@ class Players:
         self.cards.pop(chosenCard)
         return card
     
-    def loseInfluence(self, cardSelected):
-        #el jugador pierde una carta y esta debe quedar visible para todos los
-        #jugadores, no vuelve al mazo
-        card = self.cards[cardSelected].getVal()
-        self.cards.pop(chosenCard)
-        return card
+    # def loseInfluence(self, cardSelected):
+    #     #el jugador pierde una carta y esta debe quedar visible para todos los
+    #     #jugadores, no vuelve al mazo
+    #     card = self.cards[cardSelected].getVal()
+    #     self.cards.pop(chosenCard)
+    #     return card
 
 
     def pickAction(self):
         action = Printer().menu(self.name)
         return action
-
-
+    
     def counterAttack(self):
         counterattack = Printer().counterattack()
         return counterattack
@@ -61,7 +55,7 @@ class Players:
     def modifyCoins(self, amount):
         self.coins += amount
     
-    def changeCard(self):
+    def changeCard(self, card):
         pass
 
 

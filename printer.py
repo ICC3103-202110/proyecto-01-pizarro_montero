@@ -11,28 +11,13 @@ class Printer:
         print("1. Yes")
         print("2. No")
         answer = int(input())
-        if answer != 2:
-            name = input('Your name: ')
-            ans = []
-            target = input("Name of the player you are challenging: ")
-            ans.append(name)
-            ans.append(target)
-        #entrega una lista con el jugador que desafio y el que esta desafiando
-        return ans
+        return answer
 
     def counterattack(self):
         print("Does someone want to counterattack?")
         print("1. Yes")
         print("2. No")
         answer = int(input())
-        if answer != 2:
-            name = input('Your name: ')
-            ans = []
-            target = input("Name of the player you are counterattacking: ")
-            ans.append(name)
-            ans.append(target)
-        #entrega una lista con el jugador que contra ataco y el que esta 
-        #desafiando
-        return ans
+        return answer
 
 

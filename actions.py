@@ -22,27 +22,20 @@ class Action:
         return deadCard 
 
 #Acciones de Personaje
-#Ver desafio
-    def Tax(self, player1, player2):
+    def Tax(self, player1):
         player1.modifyCoins(3)
-        #depende de las monedas que tiene player2
-        player2.modifyCoins(-3)
-        
         
     def Assassinate(self, player1, player2):
+        #paga 3 monedas y asesina una influencia
         player1.modifyCoins(-3)
-        selectedCard = int(input('Which card do you want to delete?: '))
-        #ver lo de la cantidad de cartas
-        #leer enunciado
-        deadCard = self.player2.loseInfluence(selectedCard)
-        return deadCard 
-        #paga 3 mmonedas y asesina una influencia
+        deadCard = self.player2.loseInfluence()
+        return deadCard
 
     def Exchange(self, player, deck):
+        #cambia una de sus cartas
         newCards = deck.deal_cards()
         oldCards = player.cards()
-        #seleccionar una carta para quedarse devolver dos
-        #cambia sus cartas
+        #elige 2 cartas y devuelve las otras 2
 
     def Steal(self, player1, player2):
         #condiciones monedas player2
