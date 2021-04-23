@@ -117,7 +117,8 @@ class Game:
                 
                 elif action == 3:
                     target = input('Target: ')
-                    target = self.players.index(target)
+                    ind = self.players.index(target)
+                    target = self.players[ind]
                     self.lostInfluences.append(self.action.Coup(
                         self.currentPlayer, target))
 
@@ -160,18 +161,23 @@ class Game:
                             #ejecuta accion
                             if action == 5:
                                 target = input('Target: ')
-                                target = self.players.index(target)
+                                ind = self.players.index(target)
+                                target = self.players[ind]
                                 self.action.Assassinate(
                                     self.currentPlayer, target)
                             elif action == 7:
-                                #steal
+                                target = input('Target: ')
+                                ind = self.players.index(target)
+                                target = self.players[ind]
+                                self.action.Steal(self.currentPlayer, target)
                                 pass
 
                     else:
                         #ejecuta accion
                         if action == 4:
                             target = input('Target: ')
-                            target = self.players.index(target)
+                            ind = self.players.index(target)
+                            target = self.players[ind]
                             self.action.Tax(self.currentPlayer, 
                             target)
                         elif action == 6:
