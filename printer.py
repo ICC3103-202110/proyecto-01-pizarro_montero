@@ -6,15 +6,17 @@ class Printer:
         print(name, end='')
         return int(input(" ,what would you like to do?: "))
         
-    def challenge(self):
-        print("Does someone want to Challenge?")
+    def challenge(self, name):
+        print(name, end=',')
+        print(" Do you want to Challenge?")
         print("1. Yes")
         print("2. No")
         answer = int(input())
         return answer
 
-    def counterattack(self):
-        print("Does someone want to counterattack?")
+    def counterattack(self, name):
+        print(name,end=',')
+        print(" Do you want to counterattack?")
         print("1. Yes")
         print("2. No")
         answer = int(input())

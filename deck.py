@@ -4,23 +4,25 @@ from numpy import random
 
 class Deck:
     def __init__(self):
-        self.__cards = self.generate_deck()
-
+        self.generate_deck()
 
     @property
     def cards(self):
          return self.__cards
+
+    @cards.setter
+    def cards(self, cards):
+        self.__cards = cards
     
 
     def generate_deck(self):
         influenceCard = ['Duke','Assasin','Captain','Ambassador',
         'Contessa']
-        cards = []
+        self.cards = []
         for i in influenceCard:
             for k in range(3):
-                cards.append(Cards(i))
-        random.shuffle(cards)
-        self.cards = cards
+                self.cards.append(Cards(i))
+        random.shuffle(self.cards)
     
     def deal_cards(self):
         deal = []

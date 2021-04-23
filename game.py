@@ -39,8 +39,6 @@ class Game:
                             answer = self.player.counterAttack()
                             if answer == 1:
                                 counterattacking.append(player)
-                            else:
-                                continue
                         
                     if len(counterattacking) != 0:
                         i = random.randint(len(counterattacking))
@@ -51,15 +49,17 @@ class Game:
                                 answer = self.player.Challenge()
                                 if answer == 1:
                                     challenging.append(player)
-                                else:
-                                    continue
 
                         if len(challenging) != 0:
                             k = random.randint(len(counterattacking))
                             chPlayer = challenging[i]
-                            
+                        
                             #se lleva a cabo el desafio
-                            
+
+                            #caCard = caPlayer.cards[i].val
+                            if caCard == 'Duke':
+                                self.currentPlayer.modifyCoins(0)
+                                caPlayer.changeCard()
                             'el jugador desafiado muestra su duque'
 
                         else:
@@ -80,7 +80,7 @@ class Game:
                             #     #preguntar si alguien desafia el contraataque
                             #     if challenge == 1: #si
                             #         #seleccionar carta
-                            #         # if self.caPlayer.cards.getVal() == 'Duke':
+                            #         # if self.caPlayer.cards.val() == 'Duke':
                             #         #     self.currentPlayer.modifyCoins(0)
                             #         #     self.caPlayer.changeCard()
                             #         # else:
@@ -98,8 +98,7 @@ class Game:
                         answer = self.player.Challenge()
                             if answer == 1:
                                 challenging.append(player)
-                            else:
-                                continue
+        
                 
                 if len(challenging) != 0:
                     #ejecutar desafio
@@ -118,8 +117,6 @@ class Game:
                                 answer = self.player.counterAttack()
                                 if answer == 1:
                                     counterattacking.append(player)
-                                else:
-                                    continue
                             
                         if len(counterattacking) != 0:
                             i = random.randint(len(counterattacking))
@@ -130,8 +127,7 @@ class Game:
                                     answer = self.player.Challenge()
                                     if answer == 1:
                                         challenging.append(player)
-                                    else:
-                                        continue
+    
 
                             if len(challenging) != 0:
                                 k = random.randint(len(counterattacking))
@@ -188,3 +184,11 @@ class Game:
         return True
 
 #Crear condiciones para cuando los jugadores se quedan sin cartas
+
+
+def main():
+    g = Game().play()
+    
+    
+if __name__ == "__main__":
+    main() 

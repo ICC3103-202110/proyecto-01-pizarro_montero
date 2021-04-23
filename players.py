@@ -28,7 +28,7 @@ class Players:
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
         chosenCard = int(input('Seleccione una de sus cartas: '))
-        card = self.cards[chosenCard].getVal()
+        card = self.cards[chosenCard].val
         self.cards.pop(chosenCard)
         return card
     
@@ -45,11 +45,11 @@ class Players:
         return action
     
     def counterAttack(self):
-        counterattack = Printer().counterattack()
+        counterattack = Printer().counterattack(self.name)
         return counterattack
 
     def Challenge(self):
-        challenge = Printer().challenge()
+        challenge = Printer().challenge(self.name)
         return challenge
 
     def modifyCoins(self, amount):
@@ -60,11 +60,13 @@ class Players:
 
 
 def main():
-    k = Players('Juan')
+    d = Deck()
+    k = Players('Juan', d)
     for i in k.cards:
-        print(i.getVal())
+        print(i.val)
     k.loseInfluence()
     #k.pickAction()
+    k.counterAttack()
     #print(k.coins)
     
     
