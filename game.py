@@ -159,7 +159,7 @@ class Game:
                         else:
                             #ejecuta accion
                             if action == 5:
-                                target = input('as: ')
+                                target = input('Target: ')
                                 target = self.players.index(target)
                                 self.action.Assassinate(
                                     self.currentPlayer, target)
@@ -170,7 +170,7 @@ class Game:
                     else:
                         #ejecuta accion
                         if action == 4:
-                            target = input('f: ')
+                            target = input('Target: ')
                             target = self.players.index(target)
                             self.action.Tax(self.currentPlayer, 
                             target)

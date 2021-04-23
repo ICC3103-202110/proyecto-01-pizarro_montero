@@ -3,8 +3,8 @@ from deck import Deck
 
 class Action:
     
-    def __init__(self):
-        self.coinsGained = 0
+    # def __init__(self):
+    #     self.coinsGained = 0
 
 #Acciones Generales
     def Income(self, player):
@@ -32,13 +32,16 @@ class Action:
         return deadCard
 
     def Exchange(self, player, deck):
-        #cambia una de sus cartas
         newCards = deck.deal_cards()
         oldCards = player.cards()
+        for i in range(len(newCards)):
+            print(i,'.', newCards(i))
+        for i in range(len(newCards)):
+            print(i,'.', oldCards(i))
+        
         #elige 2 cartas y devuelve las otras 2
 
     def Steal(self, player1, player2):
         #condiciones monedas player2
         player1.modifyCoins(2)
-        player2.modifyCoins(-2)      
-
+        player2.modifyCoins(-2)
