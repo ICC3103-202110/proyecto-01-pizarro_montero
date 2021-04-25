@@ -11,7 +11,7 @@ class Printer:
         print(" Do you want to Challenge?")
         print("1. Yes")
         print("2. No")
-        answer = int(input())
+        answer = int(input('> '))
         return answer
 
     def counterattack(self, name):
@@ -19,5 +19,5 @@ class Printer:
         print(" Do you want to counterattack?")
         print("1. Yes")
         print("2. No")
-        answer = int(input())
+        answer = int(input('> '))
         return answer

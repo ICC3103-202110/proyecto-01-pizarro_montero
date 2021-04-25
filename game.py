@@ -72,7 +72,6 @@ class Game:
         else:
             return False
         
-
     def play(self):
         self.turn = 0
         num_of_players = int(input('Cuantos jugadores?: '))
@@ -93,6 +92,7 @@ class Game:
                 if action == 1:
                     self.action.Income(self.currentPlayer)
                 elif action == 2:
+                    #se pregunta si se quiere contraatacar
                     ca = self.askcounterattack()
                     if ca != False:
                         #se pregunta si se quiere desafiar
@@ -108,6 +108,38 @@ class Game:
                             saca otra y el jugador que desafia pierde
                             una influencia.
                             '''
+                            i = 0
+                            while i < len(ca.cards):
+                                if i == 'Duke':
+                                    #gana el desafio
+                                    print('gana')
+                                    # ca cambia su carta
+                                    # jugador que desafia pierde influencia
+                                    # se contraataca
+                                    self.currentPlayer.modifyCoins(0)
+                                    break
+                                else:
+                                    i += 1
+                                    if i == len(ca.cards):
+                                        print('pierde')
+                                    #pierde el desafio
+                                    # ca pierde una influencia
+                                    # currentPlayer ejecuta accion
+
+                            # for i in ca.cards:
+                            #     if i == 'Duke':
+                            #         #gana el desafio
+                            #         print('gana')
+                            #         # ca cambia su carta
+                            #         # jugador que desafia pierde influencia
+                            #         # se contraataca
+                            #         self.currentPlayer.modifyCoins(0)
+                            #     else:
+                            #         #pierde el desafio
+                            #         print('pierde')
+                            #         # ca pierde una influencia
+                            #         # currentPlayer ejecuta accion
+
                         else:
                             #se contraataca
                             self.currentPlayer.modifyCoins(0)
@@ -136,8 +168,10 @@ class Game:
                     '''   
                 else:
                     if action == 5 or action == 7:
+                        #se pregunta si se quiere contraatacar
                         ca = self.askcounterattack()
                         if ca != False:
+                            #se pregunta si se quiere desafiar el contraataque
                             ch = self.askchallenge(ca)
                             if ch != False:
                                 #se desafia
@@ -151,7 +185,7 @@ class Game:
                                 una influencia.
                                 '''
                             else:
-                                #se contraataca
+                                #no hay desafio y se contraataca
                                 if action == 5:
                                     self.currentPlayer.modifyCoins(-3)
                                 elif action == 7:
@@ -170,7 +204,6 @@ class Game:
                                 ind = self.players.index(target)
                                 target = self.players[ind]
                                 self.action.Steal(self.currentPlayer, target)
-                                pass
 
                     else:
                         #ejecuta accion
@@ -183,7 +216,12 @@ class Game:
                         elif action == 6:
                             #exchange
                             pass
-                            
+
+            #verifica que los jugadores tengan cartas
+            for i in self.players:
+                if len(i.cards) == 0:
+                    k = self.players.index(i)
+                    self.players.pop(k)
             
             if len(self.players) == 1:
                 self.GameOver()
