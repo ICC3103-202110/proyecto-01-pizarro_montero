@@ -143,9 +143,11 @@ class Game:
                 
                 elif action == 3:
                     print('\n')
-                    target = input('Target: ')
-                    ind = self.players.index(target)
-                    target = self.players[ind]
+                    for k in self.players:
+                        if k != self.currentPlayer:
+                            print(self.players.index(k),'.', k.name)
+                    
+                    target = int(input('Target: '))
                     self.lostInfluences.append(self.action.Coup(
                         self.currentPlayer, target))
 
@@ -169,17 +171,21 @@ class Game:
                             self.action.Tax(self.currentPlayer)
                         elif action == 5:
                             print('\n')
-                            target = input('Target: ')
-                            ind = self.players.index(target)
-                            target = self.players[ind]
+                            for k in self.players:
+                                if k != self.currentPlayer:
+                                    print(self.players.index(k),'.', k.name)
+                            
+                            target = int(input('Target: '))
                             self.action.Assassinate(self.currentPlayer, target)
                         elif action == 6:
                             self.action.Exchange(self.currentPlayer, self.deck)
                         elif action == 7:
                             print('\n')
-                            target = input('Target: ')
-                            ind = self.players.index(target)
-                            target = self.players[ind]
+                            for k in self.players:
+                                if k != self.currentPlayer:
+                                    print(self.players.index(k),'.', k.name)
+                            
+                            target = int(input('Target: '))
                             self.action.Steal(self.currentPlayer, target)  
                 else:
                     if action == 5 or action == 7:
@@ -210,16 +216,22 @@ class Game:
                                     #ejecutar accion 
                                     if action == 5:
                                         print('\n')
-                                        target = input('Target: ')
-                                        ind = self.players.index(target)
-                                        target = self.players[ind]
+                                        for k in self.players:
+                                            if k != self.currentPlayer:
+                                                print(self.players.index(k),
+                                                '.', k.name)
+                                        
+                                        target = int(input('Target: '))
                                         self.action.Assassinate(
                                             self.currentPlayer, target)
                                     elif action == 7:
                                         print('\n')
-                                        target = input('Target: ')
-                                        ind = self.players.index(target)
-                                        target = self.players[ind]
+                                        for k in self.players:
+                                            if k != self.currentPlayer:
+                                                print(self.players.index(k),
+                                                '.', k.name)
+                                        
+                                        target = int(input('Target: '))
                                         self.action.Steal(
                                             self.currentPlayer, target) 
 
@@ -234,16 +246,22 @@ class Game:
                             #ejecuta accion
                             if action == 5:
                                 print('\n')
-                                target = str(input('Target: '))
-                                ind = self.players.index(target)
-                                target = self.players[ind]
+                                for k in self.players:
+                                    if k != self.currentPlayer:
+                                        print(self.players.index(k),'.',
+                                        k.name)
+                                
+                                target = int(input('Target: '))
                                 self.action.Assassinate(
                                     self.currentPlayer, target)
                             elif action == 7:
                                 print('\n')
-                                target = input('Target: ')
-                                ind = self.players.index(target)
-                                target = self.players[ind]
+                                for k in self.players:
+                                    if k != self.currentPlayer:
+                                        print(self.players.index(k),'.',
+                                        k.name)
+                                
+                                target = int(input('Target: '))
                                 self.action.Steal(self.currentPlayer, target)
 
                     else:
