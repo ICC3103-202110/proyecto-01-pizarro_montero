@@ -36,7 +36,15 @@ class Players:
         card = self.cards[chosenCard].val
         self.cards.pop(chosenCard)
         return card
-    
+
+    def loseInfluence(self, selectedCard):
+        #el jugador pierde una carta y esta debe quedar visible para todos los
+        #jugadores, no vuelve al mazo
+        cont = len(self.cards)
+        card = self.cards[selectedCard].val
+        self.cards.pop(selectedCard)
+        return card
+
     def pickAction(self):
         action = Printer().menu(self.name)
         return action
