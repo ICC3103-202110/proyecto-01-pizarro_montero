@@ -95,7 +95,7 @@ class Game:
 
     def game_status(self):
         for i in self.players:
-            print(i, ":", i.coins)
+            print(i.name, ":", i.coins)
 
 
     def play(self):
