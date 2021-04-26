@@ -92,6 +92,12 @@ class Game:
                     challenged.loseInfluence()
                     return False
 
+
+    def game_status(self):
+        for i in self.players:
+            print(i, ":", i.coins)
+
+
     def play(self):
         self.turn = 0
         num_of_players = int(input('Cuantos jugadores?: '))
@@ -105,6 +111,7 @@ class Game:
 
         while not self.GameOver():
             self.currentPlayer = self.players[self.turn]
+            self.game_status()
             action = self.currentPlayer.pickAction()
 
             #Acciones Generales
@@ -227,7 +234,7 @@ class Game:
                             #ejecuta accion
                             if action == 5:
                                 print('\n')
-                                target = input('Target: ')
+                                target = str(input('Target: '))
                                 ind = self.players.index(target)
                                 target = self.players[ind]
                                 self.action.Assassinate(
