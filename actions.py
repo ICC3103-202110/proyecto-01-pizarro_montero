@@ -41,8 +41,8 @@ class Action:
             print((oldCards.index(i)+2),'.', i.val)
 
         print('\n')
-        x = int(input("Choose a card:"))
-        y = int(input("Choose a card:"))
+        x = int(input("Choose a card: "))
+        y = int(input("Choose a card: "))
         if x == 0 or x == 1:
             exchangeCards.append(newCards[x])
             newCards.pop(x)
@@ -60,7 +60,7 @@ class Action:
             if len(newCards) == 1:
                 oldCards.pop(0)
             else:
-                oldCards.pop(y)
+                oldCards.pop(y - 2)
             
         
         for i in newCards:
