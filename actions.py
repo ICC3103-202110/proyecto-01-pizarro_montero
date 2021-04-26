@@ -39,15 +39,26 @@ class Action:
             print((oldCards.index(i)+2),'.', i.val)
 
         print('\n')
-        for i in range(len(newCards)):
-            x = int(input("Choose a card:"))
-            if x == 0 or x == 1:
-                exchangeCards.append(newCards[x])
-                newCards.pop(x)
-            if x == 2 or x == 3:
-                exchangeCards.append(oldCards[x-2])
-                oldCards.pop(x - 2)
-
+        x = int(input("Choose a card:"))
+        y = int(input("Choose a card:"))
+        if x == 0 or x == 1:
+            exchangeCards.append(newCards[x])
+        if x == 2 or x == 3:
+            exchangeCards.append(oldCards[x-2])
+        if y == 0 or y == 1:
+            exchangeCards.append(newCards[y])
+        if y == 2 or y == 3:
+            exchangeCards.append(oldCards[y - 2])
+        
+        if x == 0 or x == 1:
+            newCards.pop(x)
+        if x == 2 or x == 3:
+            oldCards.pop(x - 2)
+        if y == 0 or y == 1:
+            newCards.pop(y)
+        if y == 2 or y == 3:
+            oldCards.pop(y - 2)
+        
         for i in newCards:
             returnCards.append(i)
         for i in oldCards:
@@ -56,9 +67,6 @@ class Action:
             deck.return_card(i)
     
         player.cards = exchangeCards
-
-
-        #elige 2 cartas y devuelve las otras 2
 
     def Steal(self, player1, player2):
         #condiciones monedas player2
