@@ -35,26 +35,30 @@ class Action:
         newCards = deck.deal_cards()
         oldCards = player.cards()
         exchangeCards = []
-
-
+        returnCards = []
         for i in newCards:
             print(index(i),'.',i)
         for i in oldCards:
             print((index(i)+2),'.', i)
-
 
         for i in len(newCards):
             x = int(input("Choose a card:"))
             if x == 1 or x ==2:
                 exchangeCards.append(newCards[x])
                 newCards.remove(newCards[x])
-            if x == 3 or x ==2:
-                exchangeCards.append(oldCards[x])
-                oldCards.remove(oldCards[x])
+            if x == 3 or x ==4:
+                exchangeCards.append(oldCards[x-2])
+                oldCards.remove(oldCards[x-2])
 
-        
-        Deck.return_card(newCards)
-        
+        for i in newCards:
+            returnCards.append(i)
+        for i in oldCards:
+            returnCards.append(i)
+        for i in returnCards
+            deck.return_card(i)
+    
+        player.cards = exchangeCards
+
 
         #elige 2 cartas y devuelve las otras 2
 
