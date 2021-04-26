@@ -27,6 +27,7 @@ class Players:
     def loseInfluence(self):
         #el jugador pierde una carta y esta debe quedar visible para todos los
         #jugadores, no vuelve al mazo
+        cont = len(self.cards)
         chosenCard = int(input('Seleccione una de sus cartas: '))
         card = self.cards[chosenCard].val
         self.cards.pop(chosenCard)
@@ -56,7 +57,7 @@ class Players:
         self.coins += amount
     
     def changeCard(self, card):
-        pass
+        self.cards.append(card)
 
 
 

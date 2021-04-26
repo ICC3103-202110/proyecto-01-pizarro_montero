@@ -99,46 +99,31 @@ class Game:
                         ch = self.askchallenge(ca)
                         if ch != False:
                             #se desafia
-                            '''
-                            si gana el que desafia el jugador que 
-                            contraataca pierde una carta, el jugador 
-                            actual ejecuta la accion si gana el desafio
-                            se ejecuta el contraataque, el jugador que
-                            contraataca devuelve su carta al mazo y 
-                            saca otra y el jugador que desafia pierde
-                            una influencia.
-                            '''
                             i = 0
                             while i < len(ca.cards):
-                                if i == 'Duke':
+                                if ca.cards[i] == 'Duke':
                                     #gana el desafio
                                     print('gana')
                                     # ca cambia su carta
+                                    deck.return_card(ca.cards[i])
+                                    ca.cards.pop(i)
+                                    ca.changeCard(deck.deal_one_card())
                                     # jugador que desafia pierde influencia
+                                    ch.loseInfluence()
                                     # se contraataca
                                     self.currentPlayer.modifyCoins(0)
                                     break
                                 else:
                                     i += 1
                                     if i == len(ca.cards):
+                                        #pierde el desafio
                                         print('pierde')
-                                    #pierde el desafio
-                                    # ca pierde una influencia
-                                    # currentPlayer ejecuta accion
-
-                            # for i in ca.cards:
-                            #     if i == 'Duke':
-                            #         #gana el desafio
-                            #         print('gana')
-                            #         # ca cambia su carta
-                            #         # jugador que desafia pierde influencia
-                            #         # se contraataca
-                            #         self.currentPlayer.modifyCoins(0)
-                            #     else:
-                            #         #pierde el desafio
-                            #         print('pierde')
-                            #         # ca pierde una influencia
-                            #         # currentPlayer ejecuta accion
+                                        # ca pierde una influencia
+                                        ca.loseInfluence()
+                                        # currentPlayer ejecuta accion
+                                        self.action.ForeignAid(
+                                            self.currentPlayer)
+                                        break
 
                         else:
                             #se contraataca
