@@ -135,6 +135,7 @@ class Game:
                         self.action.ForeignAid(self.currentPlayer)
                 
                 elif action == 3:
+                    print('\n')
                     target = input('Target: ')
                     ind = self.players.index(target)
                     target = self.players[ind]
@@ -160,6 +161,7 @@ class Game:
                         if action == 4:
                             self.action.Tax(self.currentPlayer)
                         elif action == 5:
+                            print('\n')
                             target = input('Target: ')
                             ind = self.players.index(target)
                             target = self.players[ind]
@@ -167,6 +169,7 @@ class Game:
                         elif action == 6:
                             self.action.Exchange(self.currentPlayer, self.deck)
                         elif action == 7:
+                            print('\n')
                             target = input('Target: ')
                             ind = self.players.index(target)
                             target = self.players[ind]
@@ -199,12 +202,14 @@ class Game:
                                 elif challenge == False:
                                     #ejecutar accion 
                                     if action == 5:
+                                        print('\n')
                                         target = input('Target: ')
                                         ind = self.players.index(target)
                                         target = self.players[ind]
                                         self.action.Assassinate(
                                             self.currentPlayer, target)
                                     elif action == 7:
+                                        print('\n')
                                         target = input('Target: ')
                                         ind = self.players.index(target)
                                         target = self.players[ind]
@@ -221,12 +226,14 @@ class Game:
                         else:
                             #ejecuta accion
                             if action == 5:
+                                print('\n')
                                 target = input('Target: ')
                                 ind = self.players.index(target)
                                 target = self.players[ind]
                                 self.action.Assassinate(
                                     self.currentPlayer, target)
                             elif action == 7:
+                                print('\n')
                                 target = input('Target: ')
                                 ind = self.players.index(target)
                                 target = self.players[ind]
