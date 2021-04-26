@@ -33,9 +33,6 @@ class Action:
         newCards = deck.deal_cards()
         oldCards = player.cards
 
-        fake_newCards = deepcopy(newCards)
-        fake_oldCards = player.cards
-
         exchangeCards = []
         returnCards = []
         for i in newCards:
@@ -48,20 +45,27 @@ class Action:
         y = int(input("Choose a card:"))
         if x == 0 or x == 1:
             exchangeCards.append(newCards[x])
-            fake_newCards.pop(x)
+            newCards.pop(x)
         if x == 2 or x == 3:
             exchangeCards.append(oldCards[x-2])
-            fake_oldCards.pop(x - 2)
+            oldCards.pop(x - 2)
         if y == 0 or y == 1:
             exchangeCards.append(newCards[y])
-            fake_newCards.pop(y)
+            if len(newCards) == 1:
+                newCards.pop(0)
+            else:
+                newCards.pop(y)
         if y == 2 or y == 3:
             exchangeCards.append(oldCards[y - 2])
-            fake_oldCards.pop(y - 2)
+            if len(newCards) == 1:
+                oldCards.pop(0)
+            else:
+                oldCards.pop(y)
+            
         
-        for i in fake_newCards:
+        for i in newCards:
             returnCards.append(i)
-        for i in fake_oldCards:
+        for i in ldCards:
             returnCards.append(i)
         for i in returnCards:
             deck.return_card(i)
