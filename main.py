@@ -1,8 +1,8 @@
+from game import Game
 
 def main():
-    
-    pass
-    
+    game = Game()
+    playgame = game.play()
 
 if __name__ == "__main__":
     main()

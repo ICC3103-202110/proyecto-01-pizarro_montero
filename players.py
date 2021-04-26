@@ -23,6 +23,10 @@ class Players:
     @property
     def cards(self):
         return self.__cards
+
+    @cards.setter
+    def cards(self, cards):
+        self.__cards = cards
     
     def loseInfluence(self):
         #el jugador pierde una carta y esta debe quedar visible para todos los

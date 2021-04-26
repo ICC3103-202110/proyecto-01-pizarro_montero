@@ -46,7 +46,7 @@ class Game:
         counterattacking = []
         for player in self.players:
             if player != self.currentPlayer:
-                answer = self.player.counterAttack()
+                answer = player.counterAttack()
                 if answer == 1:
                     counterattacking.append(player)
             
@@ -60,18 +60,38 @@ class Game:
     def askchallenge(self, challengedPlayer):
         challenging = []
         for player in self.players:
-            if player != self.challengedPlayer:
-                answer = self.player.Challenge()
+            if player != challengedPlayer:
+                answer = player.Challenge()
                 if answer == 1:
                     challenging.append(player)
 
         if len(challenging) != 0:
-            k = random.randint(len(counterattacking))
-            chPlayer = challenging[i]
+            k = random.randint(len(challenging))
+            chPlayer = challenging[k]
             return chPlayer
         else:
             return False
         
+    def Challenge_(self, challenged, player, influence):
+        i = 0
+        while i < len(challenged.cards):
+            if challenged.cards[i] == influence:
+                #gana el desafio
+                #el jugador desafiado cambia su carta
+                deck.return_card(challenged.cards[i])
+                challenged.cards.pop(i)
+                challenged.changeCard(deck.deal_one_card())
+                # jugador que desafia pierde influencia
+                player.loseInfluence()
+                return True
+            else:
+                i += 1
+                if i == len(challenged.cards):
+                    #pierde el desafio
+                    #el jugador desafiado pierde una influencia
+                    challenged.loseInfluence()
+                    return False
+
     def play(self):
         self.turn = 0
         num_of_players = int(input('Cuantos jugadores?: '))
@@ -99,31 +119,13 @@ class Game:
                         ch = self.askchallenge(ca)
                         if ch != False:
                             #se desafia
-                            i = 0
-                            while i < len(ca.cards):
-                                if ca.cards[i] == 'Duke':
-                                    #gana el desafio
-                                    print('gana')
-                                    # ca cambia su carta
-                                    deck.return_card(ca.cards[i])
-                                    ca.cards.pop(i)
-                                    ca.changeCard(deck.deal_one_card())
-                                    # jugador que desafia pierde influencia
-                                    ch.loseInfluence()
-                                    # se contraataca
-                                    self.currentPlayer.modifyCoins(0)
-                                    break
-                                else:
-                                    i += 1
-                                    if i == len(ca.cards):
-                                        #pierde el desafio
-                                        print('pierde')
-                                        # ca pierde una influencia
-                                        ca.loseInfluence()
-                                        # currentPlayer ejecuta accion
-                                        self.action.ForeignAid(
-                                            self.currentPlayer)
-                                        break
+                            challenge = self.Challenge_(ca, ch, 'Duke')
+                            if challenge == True:
+                                # se contraataca
+                                self.currentPlayer.modifyCoins(0)
+                            elif challenge == False:
+                                # currentPlayer ejecuta accion
+                                self.action.ForeignAid(self.currentPlayer)                                 
 
                         else:
                             #se contraataca
@@ -144,13 +146,31 @@ class Game:
                 ch = self.askchallenge(self.currentPlayer)
                 if ch != False:
                     #ejecutar desafio
-                    '''
-                    si gana el que desafia el jugador actual pierde una
-                    carta y no se ejecuta la accion.
-                    si gana el desafio se ejecuta la accion, el jugador
-                    actual devuelve su carta al mazo y saca otra y el 
-                    jugador de desafia pierde la influencia.
-                    '''   
+                    if action == 4:
+                        inf = 'Duke'
+                    elif action == 5:
+                        inf = 'Assasin'
+                    elif action == 6:
+                        inf = 'Ambassador'
+                    elif action == 7:
+                        inf = 'Captain'
+                    challenge = self.Challenge_(self.currentPlayer, ch, inf)
+                    if challenge == True:
+                        #ejecutar accion 
+                        if action == 4:
+                            self.action.Tax(self.currentPlayer)
+                        elif action == 5:
+                            target = input('Target: ')
+                            ind = self.players.index(target)
+                            target = self.players[ind]
+                            self.action.Assassinate(self.currentPlayer, target)
+                        elif action == 6:
+                            self.action.Exchange(self.currentPlayer, self.deck)
+                        elif action == 7:
+                            target = input('Target: ')
+                            ind = self.players.index(target)
+                            target = self.players[ind]
+                            self.action.Steal(self.currentPlayer, target)  
                 else:
                     if action == 5 or action == 7:
                         #se pregunta si se quiere contraatacar
@@ -160,15 +180,37 @@ class Game:
                             ch = self.askchallenge(ca)
                             if ch != False:
                                 #se desafia
-                                '''
-                                si gana el que desafia el jugador que 
-                                contraataca pierde una carta, el jugador 
-                                actual ejecuta la accion si gana el desafio
-                                se ejecuta el contraataque, el jugador que
-                                contraataca devuelve su carta al mazo y 
-                                saca otra y el jugador que desafia pierde
-                                una influencia.
-                                '''
+                                if action == 5:
+                                    inf = 'Contessa'
+                                elif action == 7:
+                                    inf = 'Captain'
+                                    challenge = self.Challenge_(ca, ch, inf)
+                                    if challenge == False:
+                                        inf = 'Ambassador'
+
+                                challenge = self.Challenge_(ca, ch, inf)
+
+                                if challenge == True:
+                                    #se contraataca
+                                    if action == 5:
+                                        self.currentPlayer.modifyCoins(-3)
+                                    elif action == 7:
+                                        self.currentPlayer.modifyCoins(0)
+                                elif challenge == False:
+                                    #ejecutar accion 
+                                    if action == 5:
+                                        target = input('Target: ')
+                                        ind = self.players.index(target)
+                                        target = self.players[ind]
+                                        self.action.Assassinate(
+                                            self.currentPlayer, target)
+                                    elif action == 7:
+                                        target = input('Target: ')
+                                        ind = self.players.index(target)
+                                        target = self.players[ind]
+                                        self.action.Steal(
+                                            self.currentPlayer, target) 
+
                             else:
                                 #no hay desafio y se contraataca
                                 if action == 5:
@@ -193,13 +235,9 @@ class Game:
                     else:
                         #ejecuta accion
                         if action == 4:
-                            target = input('Target: ')
-                            ind = self.players.index(target)
-                            target = self.players[ind]
-                            self.action.Tax(self.currentPlayer, 
-                            target)
+                            self.action.Tax(self.currentPlayer)
                         elif action == 6:
-                            #exchange
+                            self.action.Exchange(self.currentPlayer, self.deck)
                             pass
 
             #verifica que los jugadores tengan cartas
@@ -208,23 +246,21 @@ class Game:
                     k = self.players.index(i)
                     self.players.pop(k)
             
-            if len(self.players) == 1:
-                self.GameOver()
+            if self.turn < num_of_players:
+                self.turn += 1
             else:
-                if self.turn < num_of_players:
-                    self.turn += 1
-                else:
-                    self.turn = 0
+                self.turn = 0
 
 
     def GameOver(self):
-        return True
+        if len(self.players) == 1:
+            return True
 
 #Crear condiciones para cuando los jugadores se quedan sin cartas
 
-def main():
-    g = Game().play()
+# def main():
+#     g = Game().play()
     
     
-if __name__ == "__main__":
-    main() 
+# if __name__ == "__main__":
+#     main() 

@@ -2,9 +2,6 @@ from players import Players
 from deck import Deck
 
 class Action:
-    
-    # def __init__(self):
-    #     self.coinsGained = 0
 
 #Acciones Generales
     def Income(self, player):
@@ -33,28 +30,29 @@ class Action:
 
     def Exchange(self, player, deck):
         newCards = deck.deal_cards()
-        oldCards = player.cards()
+        oldCards = player.cards
         exchangeCards = []
         returnCards = []
         for i in newCards:
-            print(index(i),'.',i)
+            print(newCards.index(i),'.',i.val)
         for i in oldCards:
-            print((index(i)+2),'.', i)
+            print((oldCards.index(i)+2),'.', i.val)
 
-        for i in len(newCards):
+        print('\n')
+        for i in range(len(newCards)):
             x = int(input("Choose a card:"))
-            if x == 1 or x ==2:
+            if x == 0 or x == 1:
                 exchangeCards.append(newCards[x])
-                newCards.remove(newCards[x])
-            if x == 3 or x ==4:
+                newCards.pop(x)
+            if x == 2 or x == 3:
                 exchangeCards.append(oldCards[x-2])
-                oldCards.remove(oldCards[x-2])
+                oldCards.pop(x - 2)
 
         for i in newCards:
             returnCards.append(i)
         for i in oldCards:
             returnCards.append(i)
-        for i in returnCards
+        for i in returnCards:
             deck.return_card(i)
     
         player.cards = exchangeCards
@@ -70,5 +68,3 @@ class Action:
         elif player2.coins == 1:
             player1.modifyCoins(1)
             player2.modifyCoins(-1)
-            
-
