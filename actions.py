@@ -13,7 +13,7 @@ class Action:
 
     def Coup(self, player1, player2):
         player1.modifyCoins(-7)
-        selectedCard = int(input('Which card do you want to delete?: '))
+        selectedCard = int(input('Which card do you want to delete?(index): '))
         #ver lo de la cantidad de cartas
         #leer enunciado
         deadCard = self.player2.loseInfluence(selectedCard)
