@@ -37,14 +37,6 @@ class Players:
         self.cards.pop(chosenCard)
         return card
     
-    # def loseInfluence(self, cardSelected):
-    #     #el jugador pierde una carta y esta debe quedar visible para todos los
-    #     #jugadores, no vuelve al mazo
-    #     card = self.cards[cardSelected].getVal()
-    #     self.cards.pop(chosenCard)
-    #     return card
-
-
     def pickAction(self):
         action = Printer().menu(self.name)
         return action
@@ -62,43 +54,3 @@ class Players:
     
     def changeCard(self, card):
         self.cards.append(card)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def main():
-    d = Deck()
-    k = Players('Juan', d)
-    for i in k.cards:
-        print(i.val)
-    k.loseInfluence()
-    #k.pickAction()
-    k.counterAttack()
-    #print(k.coins)
-    
-    
-if __name__ == "__main__":
-    main() 
