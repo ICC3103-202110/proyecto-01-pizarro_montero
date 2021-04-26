@@ -255,12 +255,3 @@ class Game:
     def GameOver(self):
         if len(self.players) == 1:
             return True
-
-#Crear condiciones para cuando los jugadores se quedan sin cartas
-
-# def main():
-#     g = Game().play()
-    
-    
-# if __name__ == "__main__":
-#     main() 
