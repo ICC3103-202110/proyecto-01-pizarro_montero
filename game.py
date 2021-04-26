@@ -97,6 +97,17 @@ class Game:
         for i in self.players:
             print(i.name, ":", i.coins)
 
+    def print_cards(self):
+        print("Do you want to see your cards?")
+        print("1. Yes")
+        print("2. No")
+        answer = int(input('> '))
+        if answer == 1:
+            print(self.currentPlayer.cards.val)
+        elif answer == 2:
+            pass
+
+
 
     def play(self):
         self.turn = 0
@@ -112,6 +123,7 @@ class Game:
         while not self.GameOver():
             self.currentPlayer = self.players[self.turn]
             self.game_status()
+            self.print_cards()
             action = self.currentPlayer.pickAction()
 
             #Acciones Generales
