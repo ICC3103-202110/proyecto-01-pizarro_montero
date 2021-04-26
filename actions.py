@@ -31,8 +31,10 @@ class Action:
     def Exchange(self, player, deck):
         newCards = deck.deal_cards()
         oldCards = player.cards
-        fake_newCards = newCards [:]
+
+        fake_newCards = deepcopy(newCards)
         fake_oldCards = player.cards
+
         exchangeCards = []
         returnCards = []
         for i in newCards:
