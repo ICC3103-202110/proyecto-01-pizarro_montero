@@ -31,6 +31,8 @@ class Action:
     def Exchange(self, player, deck):
         newCards = deck.deal_cards()
         oldCards = player.cards
+        fake_newCards = newCards
+        fake_oldCards = player.cards
         exchangeCards = []
         returnCards = []
         for i in newCards:
@@ -43,25 +45,20 @@ class Action:
         y = int(input("Choose a card:"))
         if x == 0 or x == 1:
             exchangeCards.append(newCards[x])
+            fake_newCards.pop(x)
         if x == 2 or x == 3:
             exchangeCards.append(oldCards[x-2])
+            fake_oldCards.pop(x - 2)
         if y == 0 or y == 1:
             exchangeCards.append(newCards[y])
+            fake_newCards.pop(y)
         if y == 2 or y == 3:
             exchangeCards.append(oldCards[y - 2])
+            fake_oldCards.pop(y - 2)
         
-        if x == 0 or x == 1:
-            newCards.pop(x)
-        if x == 2 or x == 3:
-            oldCards.pop(x - 2)
-        if y == 0 or y == 1:
-            newCards.pop(y)
-        if y == 2 or y == 3:
-            oldCards.pop(y - 2)
-        
-        for i in newCards:
+        for i in fake_newCards:
             returnCards.append(i)
-        for i in oldCards:
+        for i in fake_oldCards:
             returnCards.append(i)
         for i in returnCards:
             deck.return_card(i)
