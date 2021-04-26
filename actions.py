@@ -50,22 +50,26 @@ class Action:
             exchangeCards.append(oldCards[x-2])
             oldCards.pop(x - 2)
         if y == 0 or y == 1:
-            exchangeCards.append(newCards[y])
+            # exchangeCards.append(newCards[y])
             if len(newCards) == 1:
+                exchangeCards.append(newCards[0])
                 newCards.pop(0)
             else:
+                exchangeCards.append(newCards[y])
                 newCards.pop(y)
         if y == 2 or y == 3:
-            exchangeCards.append(oldCards[y - 2])
+            # exchangeCards.append(oldCards[y - 2])
             if len(newCards) == 1:
+                exchangeCards.append(oldCards[0])
                 oldCards.pop(0)
             else:
+                exchangeCards.append(oldCards[y - 2])
                 oldCards.pop(y - 2)
             
         
         for i in newCards:
             returnCards.append(i)
-        for i in ldCards:
+        for i in oldCards:
             returnCards.append(i)
         for i in returnCards:
             deck.return_card(i)
