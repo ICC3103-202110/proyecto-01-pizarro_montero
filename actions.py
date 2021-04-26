@@ -31,7 +31,7 @@ class Action:
     def Exchange(self, player, deck):
         newCards = deck.deal_cards()
         oldCards = player.cards
-        fake_newCards = newCards
+        fake_newCards = newCards [:]
         fake_oldCards = player.cards
         exchangeCards = []
         returnCards = []
