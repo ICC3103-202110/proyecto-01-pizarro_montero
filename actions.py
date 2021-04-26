@@ -34,11 +34,28 @@ class Action:
     def Exchange(self, player, deck):
         newCards = deck.deal_cards()
         oldCards = player.cards()
-        for i in range(len(newCards)):
-            print(i,'.', newCards(i))
-        for i in range(len(newCards)):
-            print(i,'.', oldCards(i))
+        exchangeCards = []
+
+
+        for i in newCards:
+            print(index(i),'.',i)
+        for i in oldCards:
+            print((index(i)+2),'.', i)
+
+
+        for i in len(newCards):
+            x = int(input("Choose a card:"))
+            if x == 1 or x ==2:
+                exchangeCards.append(newCards[x])
+                newCards.remove(newCards[x])
+            if x == 3 or x ==2:
+                exchangeCards.append(oldCards[x])
+                oldCards.remove(oldCards[x])
+
         
+        Deck.return_card(newCards)
+        
+
         #elige 2 cartas y devuelve las otras 2
 
     def Steal(self, player1, player2):
